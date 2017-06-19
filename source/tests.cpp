@@ -20,12 +20,25 @@ TEST_CASE(" create a shape") {
 TEST_CASE("create sphere") {
 	Sphere basic{};
 	Sphere advanced{ zeroVec,{3.85f},{"advanced"},{black} };
-	REQUIRE(basic.getCenter().x == zeroVec.x);
-	REQUIRE(basic.getCenter().y == zeroVec.y);
-	REQUIRE(basic.getCenter().z == zeroVec.z);
-	REQUIRE(basic.getRadius() == 3.85f);
-	REQUIRE(basic.area() == Approx(4.0f));
-	REQUIRE(basic.volume() == Approx(4.0f));
+	REQUIRE(advanced.getCenter().x == zeroVec.x);
+	REQUIRE(advanced.getCenter().y == zeroVec.y);
+	REQUIRE(advanced.getCenter().z == zeroVec.z);
+	REQUIRE(advanced.getRadius() == 3.85f);
+	REQUIRE(advanced.area() == Approx(4.0f));
+	REQUIRE(advanced.volume() == Approx(4.0f));
+}
+
+TEST_CASE("create box") {
+	Box basic{};
+	Box advanced{ zeroVec, oneVec,{ "advanced" },{ black } };
+	REQUIRE(advanced.area() == Approx(4.0f));
+	REQUIRE(advanced.volume() == Approx(4.0f));
+	REQUIRE(advanced.getMin().x == zeroVec.x);
+	REQUIRE(advanced.getMin().y == zeroVec.y);
+	REQUIRE(advanced.getMin().z == zeroVec.z);
+	REQUIRE(advanced.getMax().x == oneVec.x);
+	REQUIRE(advanced.getMax().y == oneVec.y);
+	REQUIRE(advanced.getMax().z == oneVec.z);
 }
 
 TEST_CASE(" intersectRaySphere ", "[ intersect ]")
