@@ -3,20 +3,32 @@
 #include "Shape.h"
 #include "Sphere.h"
 #include "Box.h"
+#include "Color.hpp"
 #include <glm/glm.hpp >
 #include <glm/gtx/intersect.hpp >
 
+glm::vec3 zeroVec{ 0.0,0.0,0.0 };
 glm::vec3 oneVec{ 1.0,1.0,1.0 };
+Color black{1.0,1.0,1.0};
+/*
 TEST_CASE(" create a shape") {
 	Shape basic{};
 	REQUIRE(1.0 == 1.0);
 	//test creation of shape
 }
+*/
 TEST_CASE("create sphere") {
-
+	Sphere basic{};
+	Sphere advanced{ zeroVec,{3.85f},{"advanced"},{black} };
+	REQUIRE(basic.getCenter().x == zeroVec.x);
+	REQUIRE(basic.getCenter().y == zeroVec.y);
+	REQUIRE(basic.getCenter().z == zeroVec.z);
+	REQUIRE(basic.getRadius() == 3.85f);
+	REQUIRE(basic.area() == Approx(4.0f));
+	REQUIRE(basic.volume() == Approx(4.0f));
 }
 
-/*TEST_CASE(" intersectRaySphere ", "[ intersect ]")
+TEST_CASE(" intersectRaySphere ", "[ intersect ]")
 {
 	// Ray
 	glm::vec3 ray_origin{ 0.0 ,0.0 ,0.0 };
@@ -33,9 +45,9 @@ TEST_CASE("create sphere") {
 		sphere_center,
 		sphere_radius * sphere_radius, // squared radius !!!
 		distance);
-	REQUIRE(distance == Approx(4.0 f));
+	REQUIRE(distance == Approx(4.0f));
 }
-*/
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
