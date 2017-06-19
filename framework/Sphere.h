@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape.h"
 #include "color.hpp"
+#include "ray.hpp"
 class Sphere :
 	public Shape
 {
@@ -14,6 +15,7 @@ public:
 	float getRadius() const;
 	std::string getName() const;
 	Color getColor() const;
+	bool intersect(Ray ray_) const;
 
 private:
 	glm::vec3 center_;

@@ -8,6 +8,8 @@ public:
 	~Shape();
 	virtual float area() const;
 	virtual float volume() const;
-
+	//virtual std::ostream & print(std::ostream & os) const; 
+	//std::ostream& operator<<(std::ostream& os, Shape const & s)
 };
+
 

@@ -49,3 +49,10 @@ Color Sphere::getColor() const
 	return color_;
 }
 
+bool Sphere::intersect(Ray ray_) const
+{
+	float distance{ 0.0 };
+	bool test = glm::intersectRaySphere(ray_.origin, glm::normalize(ray_.direction), getCenter(), getRadius()*getRadius(), distance);
+	return test;
+}
+

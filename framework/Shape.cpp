@@ -20,3 +20,9 @@ float Shape::volume() const
 {
 	return 0.0f;
 }
+
+/*std::ostream & Shape::print(std::ostream & os) const
+{
+	// TODO: insert return statement here
+}
+*/
